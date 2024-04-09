@@ -40,4 +40,30 @@ map("n", "<leader>xd", "<cmd> Trouble document_diagnostics <cr>", { desc = "Trou
 map("n", "<leader>xq", "<cmd> Trouble quickfix <cr>", { desc = "Trouble Quickfix" })
 map("n", "<leader>xl", "<cmd> Trouble loclist <cr>", { desc = "Trouble Loclist" })
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Todo Next" })
+
+map("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Todo Prev" })
+
+-- harpoon add file
+map("n", "<leader>ha", function()
+  require("harpoon.mark").add_file()
+end, { desc = "Harpoon Add File" })
+
+-- harpoon toggle quick menu
+map("n", "<leader>hh", function()
+  require("harpoon.ui").toggle_quick_menu()
+end, { desc = "Harpoon Toggle Quick Menu" })
+
+-- harpoon navigate next mark
+map("n", "<leader>a", function()
+  require("harpoon.ui").nav_next()
+end, { desc = "Harpoon Next" })
+
+-- harpoon navigate prev mark
+map("n", "<leader>d", function()
+  require("harpoon.ui").nav_prev()
+end, { desc = "Harpoon Prev" })
