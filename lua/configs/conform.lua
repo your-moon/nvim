@@ -5,7 +5,7 @@ local options = {
     html = { "prettierd" },
     tsx = { "prettierd" },
     javascript = { "prettierd" },
-    go = { "gofumpt", "goimports_reviser", "golines" },
+    go = { "gofmt" },
   },
 
   format_on_save = {

@@ -76,6 +76,11 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = {
+        enabled = true,
+      },
+    },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
@@ -154,6 +159,7 @@ return {
     ft = { "python", "php", "javascript", "typescript", "c", "lua", "rust", "css" },
     lazy = false,
   },
+
   -- {
   --   "olexsmir/gopher.nvim",
   --   ft = "go",
@@ -164,6 +170,7 @@ return {
   --     vim.cmd [[silent! GoInstallDeps]]
   --   end,
   -- },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
