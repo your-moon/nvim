@@ -11,18 +11,18 @@ map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate up" })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate right" })
 
-map("n", "zR", require("ufo").openAllFolds)
-map("n", "zM", require("ufo").closeAllFolds)
-map("n", "zr", require("ufo").openFoldsExceptKinds)
-map("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-map("n", "K", function()
-  local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    -- choose one of coc.nvim and nvim lsp
-    -- vim.fn.CocActionAsync "definitionHover" -- coc.nvim
-    vim.lsp.buf.hover()
-  end
-end)
+-- map("n", "zR", require("ufo").openAllFolds)
+-- map("n", "zM", require("ufo").closeAllFolds)
+-- map("n", "zr", require("ufo").openFoldsExceptKinds)
+-- map("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+-- map("n", "K", function()
+--   local winid = require("ufo").peekFoldedLinesUnderCursor()
+--   if not winid then
+--     -- choose one of coc.nvim and nvim lsp
+--     -- vim.fn.CocActionAsync "definitionHover" -- coc.nvim
+--     vim.lsp.buf.hover()
+--   end
+-- end)
 
 map("n", "gw", "<cmd> Lspsaga peek_definition <cr>", { desc = "Peek definition" })
 map("n", "gf", "<cmd> Lspsaga finder <cr>", { desc = "Find definition" })
@@ -67,3 +67,18 @@ end, { desc = "Harpoon Next" })
 map("n", "<leader>d", function()
   require("harpoon.ui").nav_prev()
 end, { desc = "Harpoon Prev" })
+
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+map("n", "<leader>dus", function()
+  local widgets = require "dap.ui.widgets"
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
+end, { desc = "Open debugging sidebar" })
+
+map("n", "<leader>dgt", function()
+  require("dap-go").debug_test()
+end, { desc = "Debug go test" })
+
+map("n", "<leader>dgl", function()
+  require("dap-go").debug_last()
+end, { desc = "Debug last go test" })

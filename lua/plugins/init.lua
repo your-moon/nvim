@@ -1,7 +1,6 @@
 return {
   {
     "ThePrimeagen/harpoon",
-    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("harpoon").setup {}
@@ -18,8 +17,8 @@ return {
     },
   },
   {
-    lazy = false,
     "folke/trouble.nvim",
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       -- your configuration comes here
@@ -66,11 +65,28 @@ return {
       auto_trigger = true,
     },
   },
+
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
+    cmd = { "ConformInfo" },
     config = function()
       require "configs.conform"
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    init = function()
+      -- require("core.utils").load_mappings "dap"
+    end,
+  },
+  {
+    "dreamsofcode-io/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      -- require("core.utils").load_mappings "dap_go"
     end,
   },
 
@@ -91,6 +107,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "zls",
         "typescript-language-server",
         "lua-language-server",
         "stylua",
@@ -102,6 +119,8 @@ return {
         "gopls",
         "docker-compose-language-service",
         "dockerfile-language-server",
+        "clangd",
+        "jdtls",
       },
     },
   },
