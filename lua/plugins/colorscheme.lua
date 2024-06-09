@@ -4,7 +4,7 @@ return {
     name = "tokyonight",
     priority = 1000,
     config = function()
-      vim.cmd [[colorscheme catppuccin-frappe]]
+      vim.cmd [[colorscheme tokyonight-night]]
     end,
   },
   {
@@ -15,6 +15,11 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
+    priority = 1000,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    name = "gruvbox",
     priority = 1000,
   },
 }

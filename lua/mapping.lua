@@ -9,6 +9,8 @@ map("n", "]d", "<cmd> Lspsaga diagnostic_jump_next <cr>", { desc = "LSP jump nex
 map("n", "[d", "<cmd> Lspsaga diagnostic_jump_prev <cr>", { desc = "LSP jump prev" })
 map("n", "<leader>ca", "<cmd> Lspsaga code_action <cr>", { desc = "LSP code action" })
 
+map("n", "<leader>w", "<cmd> OrganizeImports <cr>", { desc = "Organize Typescript Imports" })
+
 -- Split Explore
 map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
 map("n", "<leader>hx", "<cmd> Hexplore<cr>", { desc = "Hexplore" })
