@@ -40,6 +40,8 @@ return {
 
       lspconfig.rust_analyzer.setup {}
 
+      lspconfig.zls.setup {}
+
       lspconfig.gopls.setup {
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
         settings = {
