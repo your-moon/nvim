@@ -6,6 +6,8 @@ return {
 		"rust",
 		"gleam",
 		"templ",
+		"typescript",
+		"tsx",
 	},
 	highlight = {
 		enable = true,
