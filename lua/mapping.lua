@@ -16,3 +16,7 @@ map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
 map("n", "<leader>hx", "<cmd> Hexplore<cr>", { desc = "Hexplore" })
 map("n", "<leader>v", "<cmd> vsplit<cr>", { desc = "vsplit" })
 map("n", "<leader>h", "<cmd> hsplit<cr>", { desc = "hsplit" })
+
+-- Trouble
+map("n", "<leader>xw", "<cmd> Trouble diagnostics toggle <cr>", { desc = "Trouble Diagnostics Toggle" })
+map("n", "<leader>xq", "<cmd> Trouble fqlist toggle <cr>", { desc = "Trouble Quickfix Toggle" })
