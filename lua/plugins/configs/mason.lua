@@ -8,5 +8,6 @@ return {
     "rust-analyzer",
     "rustfmt",
     "stylua",
+    "prettier",
   },
 }
