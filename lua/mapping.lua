@@ -19,4 +19,4 @@ map("n", "<leader>h", "<cmd> hsplit<cr>", { desc = "hsplit" })
 
 -- Trouble
 map("n", "<leader>xw", "<cmd> Trouble diagnostics toggle <cr>", { desc = "Trouble Diagnostics Toggle" })
-map("n", "<leader>xq", "<cmd> Trouble fqlist toggle <cr>", { desc = "Trouble Quickfix Toggle" })
+map("n", "<leader>xq", "<cmd> Trouble qflist toggle <cr>", { desc = "Trouble Quickfix Toggle" })
