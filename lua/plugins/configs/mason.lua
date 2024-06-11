@@ -5,7 +5,7 @@ return {
     "golines",
     "gopls",
     "lua-language-server",
-    "rust-analyzer",
+    -- "rust-analyzer",
     "rustfmt",
     "stylua",
     "prettier",
