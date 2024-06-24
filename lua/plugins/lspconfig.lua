@@ -42,6 +42,13 @@ return {
 
       lspconfig.zls.setup {}
 
+      lspconfig.clangd.setup {
+        cmd = {
+          "clangd",
+          "--offset-encoding=utf-16",
+        },
+      }
+
       lspconfig.gopls.setup {
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
         settings = {
