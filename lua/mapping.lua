@@ -7,6 +7,7 @@ map("n", "gd", "<cmd> Lspsaga goto_definition <cr>", { desc = "Goto definition" 
 map("n", "]d", "<cmd> Lspsaga diagnostic_jump_next <cr>", { desc = "LSP jump next" })
 map("n", "[d", "<cmd> Lspsaga diagnostic_jump_prev <cr>", { desc = "LSP jump prev" })
 map("n", "<leader>ca", "<cmd> Lspsaga code_action <cr>", { desc = "LSP code action" })
+map("n", "<leader>rn", "<cmd> Lspsaga rename <cr>", { desc = "LSP rename" })
 
 map("n", "<leader>w", "<cmd> OrganizeImports <cr>", { desc = "Organize Typescript Imports" })
 
