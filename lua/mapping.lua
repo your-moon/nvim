@@ -24,3 +24,10 @@ map("n", "<leader>xq", "<cmd> Trouble qflist toggle <cr>", { desc = "Trouble Qui
 -- Nvim tree
 map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Toggle" })
 map("n", "<leader>r", "<cmd> NvimTreeFindFileToggle <cr>", { desc = "NvimTree Find File" })
+
+-- typescript organize imports
+map("n", "<leader>o", "<cmd> TSToolsOrganizeImports <cr>", { desc = "TSToolsOrganizeImports" })
+
+map("n", "<leader>z", "<cmd> ZenMode<cr>", { desc = "Zen Mode" })
+
+map("n", "<leader>j", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })

@@ -19,6 +19,10 @@ return {
         group = augroup,
         buffer = bufnr,
         callback = function()
+          -- vim.api.nvim_create_autocmd("BufWritePost", {
+          --   pattern = "*.tsx",
+          --   command = "TSToolsOrganizeImports",
+          -- })
           vim.lsp.buf.format { bufnr = bufnr }
         end,
       })
