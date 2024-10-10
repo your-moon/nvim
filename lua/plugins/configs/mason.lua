@@ -10,5 +10,6 @@ return {
     "stylua",
     "prettier",
     "biome",
+    "typescript-language-server",
   },
 }

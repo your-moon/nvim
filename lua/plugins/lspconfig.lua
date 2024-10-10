@@ -19,7 +19,8 @@ return {
       }
 
       lspconfig.zls.setup {}
-      lspconfig.biome.setup {}
+      -- lspconfig.biome.setup {}
+      lspconfig.ts_ls.setup {}
 
       lspconfig.clangd.setup {
         cmd = {
