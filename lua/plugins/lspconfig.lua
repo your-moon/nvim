@@ -19,6 +19,7 @@ return {
       }
 
       lspconfig.zls.setup {}
+      lspconfig.biome.setup {}
 
       lspconfig.clangd.setup {
         cmd = {

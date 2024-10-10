@@ -9,5 +9,6 @@ return {
     "rustfmt",
     "stylua",
     "prettier",
+    "biome",
   },
 }
