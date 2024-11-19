@@ -1,4 +1,5 @@
 return {
+
   {
     "RRethy/base16-nvim",
   },
@@ -61,7 +62,8 @@ return {
       -- vim.cmd [[colorscheme gruvbox]]
       -- vim.cmd [[colorscheme kanagawa-dragon]]
       -- vim.cmd [[colorscheme gruber-darker]]
-      vim.cmd [[colorscheme vague]]
+      -- vim.cmd [[colorscheme vague]]
+      vim.cmd [[colorscheme base16-grayscale-dark]]
     end,
   },
   {

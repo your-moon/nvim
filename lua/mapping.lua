@@ -12,10 +12,10 @@ map("n", "<leader>rn", "<cmd> Lspsaga rename <cr>", { desc = "LSP rename" })
 map("n", "<leader>w", "<cmd> OrganizeImports <cr>", { desc = "Organize Typescript Imports" })
 
 -- Split Explore
-map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
-map("n", "<leader>hx", "<cmd> Hexplore<cr>", { desc = "Hexplore" })
-map("n", "<leader>v", "<cmd> vsplit<cr>", { desc = "vsplit" })
-map("n", "<leader>h", "<cmd> hsplit<cr>", { desc = "hsplit" })
+-- map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
+-- map("n", "<leader>hx", "<cmd> Hexplore<cr>", { desc = "Hexplore" })
+-- map("n", "<leader>v", "<cmd> vsplit<cr>", { desc = "vsplit" })
+-- map("n", "<leader>h", "<cmd> hsplit<cr>", { desc = "hsplit" })
 
 -- Trouble
 map("n", "<leader>xw", "<cmd> Trouble diagnostics toggle <cr>", { desc = "Trouble Diagnostics Toggle" })
