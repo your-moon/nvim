@@ -58,12 +58,13 @@ return {
     config = function()
       -- vim.cmd [[colorscheme tokyonight-night]]
       -- vim.cmd [[colorscheme catppuccin-mocha]]
-      -- vim.cmd [[colorscheme rose-pine]]
+      -- vim.cmd [[colorscheme rose-pine-moon]]
       -- vim.cmd [[colorscheme gruvbox]]
       -- vim.cmd [[colorscheme kanagawa-dragon]]
       -- vim.cmd [[colorscheme gruber-darker]]
       -- vim.cmd [[colorscheme vague]]
-      vim.cmd [[colorscheme base16-grayscale-dark]]
+      -- vim.cmd [[colorscheme base16-horizon-dark]]
+      vim.cmd [[colorscheme base16-gruvbox-material-dark-soft]]
     end,
   },
   {

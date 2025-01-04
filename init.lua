@@ -51,13 +51,20 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Tabs vs spaces
-vim.o.tabstop = 2      -- A TAB character looks like 4 spaces
+vim.o.tabstop = 2 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 2  -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 2   -- Number of spaces inserted when indenting
+vim.o.softtabstop = 2 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 2 -- Number of spaces inserted when indenting
 
 -- Enable mouse mode
 vim.o.mouse = "a"
+
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = false,
+  underline = false,
+  update_in_insert = false,
+}
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
