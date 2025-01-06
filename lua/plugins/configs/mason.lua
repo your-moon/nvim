@@ -11,5 +11,6 @@ return {
     "prettier",
     "biome",
     "typescript-language-server",
+    "zls",
   },
 }
