@@ -30,4 +30,11 @@ map("n", "<leader>o", "<cmd> TSToolsOrganizeImports <cr>", { desc = "TSToolsOrga
 
 map("n", "<leader>z", "<cmd> ZenMode<cr>", { desc = "Zen Mode" })
 
-map("n", "<leader>j", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
+map("n", "<leader>j", "<cmd> MultipleCursorsAddJumpNextMatch <cr>", { desc = "Add cursor next match down" })
+map("n", "<leader>d", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor next down" })
+map(
+  "n",
+  "<leader>l",
+  "<cmd> ToggleTerm size=40 dir=./ direction=float name=desktop <cr>",
+  { desc = "Add cursor next down" }
+)
