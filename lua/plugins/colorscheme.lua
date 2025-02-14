@@ -64,7 +64,7 @@ return {
       -- vim.cmd [[colorscheme gruber-darker]]
       -- vim.cmd [[colorscheme vague]]
       -- vim.cmd [[colorscheme base16-horizon-dark]]
-      vim.cmd [[colorscheme base16-gruvbox-material-dark-soft]]
+      -- vim.cmd [[colorscheme base16-gruvbox-material-dark-soft]]
     end,
   },
   {
@@ -83,6 +83,18 @@ return {
           italic = false,
         },
       }
+    end,
+  },
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = "dark"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_enable_italic = true
+      vim.opt.termguicolors = true -- Enable 24-bit RGB colors
+      vim.cmd.colorscheme "gruvbox-material"
     end,
   },
   {
