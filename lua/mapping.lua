@@ -31,10 +31,25 @@ map("n", "<leader>o", "<cmd> TSToolsOrganizeImports <cr>", { desc = "TSToolsOrga
 map("n", "<leader>z", "<cmd> ZenMode<cr>", { desc = "Zen Mode" })
 
 map("n", "<leader>j", "<cmd> MultipleCursorsAddJumpNextMatch <cr>", { desc = "Add cursor next match down" })
-map("n", "<leader>d", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor next down" })
+-- map("n", "<leader>d", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor next down" })
 map(
   "n",
   "<leader>l",
   "<cmd> ToggleTerm size=40 dir=./ direction=float name=desktop <cr>",
   { desc = "Add cursor next down" }
 )
+-- nvim dap
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
+map("n", "<leader>dus", function()
+  local widgets = require "dap.ui.widgets"
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
+end, { desc = "Dap debugging sidebar" })
+
+map("n", "<leader>dn", "<cmd> DapStepOver ", { desc = "Dap StepOver" })
+
+map("n", "<leader>dd", function()
+  require("dap").continue()
+end, { desc = "Dap debug" })
+
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
