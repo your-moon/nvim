@@ -3,6 +3,7 @@ return {
     "gofumpt",
     "goimports",
     "gopls",
+    "golines",
     "lua-language-server",
     -- "rust-analyzer",
     "rustfmt",

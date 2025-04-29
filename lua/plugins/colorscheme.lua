@@ -56,15 +56,8 @@ return {
     name = "tokyonight",
     priority = 1000,
     config = function()
-      -- vim.cmd [[colorscheme tokyonight-night]]
       -- vim.cmd [[colorscheme catppuccin-mocha]]
-      -- vim.cmd [[colorscheme rose-pine-moon]]
-      -- vim.cmd [[colorscheme gruvbox]]
-      -- vim.cmd [[colorscheme kanagawa-dragon]]
-      -- vim.cmd [[colorscheme gruber-darker]]
-      -- vim.cmd [[colorscheme vague]]
-      -- vim.cmd [[colorscheme base16-horizon-dark]]
-      -- vim.cmd [[colorscheme base16-gruvbox-material-dark-soft]]
+      -- vim.cmd [[colorscheme catppuccin-mocha]]
     end,
   },
   {
@@ -83,6 +76,7 @@ return {
           italic = false,
         },
       }
+      vim.cmd [[colorscheme rose-pine-moon]]
     end,
   },
   {
@@ -90,11 +84,11 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.o.background = "dark"
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_enable_italic = true
-      vim.opt.termguicolors = true -- Enable 24-bit RGB colors
-      vim.cmd.colorscheme "gruvbox-material"
+      -- vim.o.background = "dark"
+      -- vim.g.gruvbox_material_background = "medium"
+      -- vim.g.gruvbox_material_enable_italic = true
+      -- vim.opt.termguicolors = true -- Enable 24-:it RGB colors
+      -- vim.cmd.colorscheme "gruvbox-material"
     end,
   },
   {
