@@ -56,8 +56,6 @@ return {
     name = "tokyonight",
     priority = 1000,
     config = function()
-      -- vim.cmd [[colorscheme catppuccin-mocha]]
-      -- vim.cmd [[colorscheme catppuccin-mocha]]
     end,
   },
   {
@@ -76,7 +74,6 @@ return {
           italic = false,
         },
       }
-      vim.cmd [[colorscheme rose-pine-moon]]
     end,
   },
   {
@@ -89,6 +86,7 @@ return {
       -- vim.g.gruvbox_material_enable_italic = true
       -- vim.opt.termguicolors = true -- Enable 24-:it RGB colors
       -- vim.cmd.colorscheme "gruvbox-material"
+      -- vim.cmd.colorscheme "rose-pine"
     end,
   },
   {

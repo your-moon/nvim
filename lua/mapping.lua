@@ -30,7 +30,36 @@ map("n", "<leader>o", "<cmd> TSToolsOrganizeImports <cr>", { desc = "TSToolsOrga
 
 map("n", "<leader>z", "<cmd> ZenMode<cr>", { desc = "Zen Mode" })
 
-map("n", "<leader>j", "<cmd> MultipleCursorsAddJumpNextMatch <cr>", { desc = "Add cursor next match down" })
+-- Multiple Cursors
+map("n", "<C-j>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
+map("x", "<C-j>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
+map("n", "<C-k>", "<cmd> MultipleCursorsAddUp <cr>", { desc = "Add cursor and move up" })
+map("x", "<C-k>", "<cmd> MultipleCursorsAddUp <cr>", { desc = "Add cursor and move up" })
+
+map("n", "<C-Up>", "<cmd> MultipleCursorsAddUp <cr>", { desc = "Add cursor and move up" })
+map("i", "<C-Up>", "<cmd> MultipleCursorsAddUp <cr>", { desc = "Add cursor and move up" })
+map("x", "<C-Up>", "<cmd> MultipleCursorsAddUp <cr>", { desc = "Add cursor and move up" })
+map("n", "<C-Down>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
+map("i", "<C-Down>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
+map("x", "<C-Down>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
+
+map("n", "<C-LeftMouse>", "<cmd> MultipleCursorsMouseAddDelete <cr>", { desc = "Add or remove cursor" })
+map("i", "<C-LeftMouse>", "<cmd> MultipleCursorsMouseAddDelete <cr>", { desc = "Add or remove cursor" })
+
+map("x", "<leader>m", "<cmd> MultipleCursorsAddVisualArea <cr>", { desc = "Add cursors to the lines of the visual area" })
+
+map("n", "<leader>a", "<cmd> MultipleCursorsAddMatches <cr>", { desc = "Add cursors to cword" })
+map("x", "<leader>a", "<cmd> MultipleCursorsAddMatches <cr>", { desc = "Add cursors to cword" })
+map("n", "<leader>A", "<cmd> MultipleCursorsAddMatchesV <cr>", { desc = "Add cursors to cword in previous area" })
+map("x", "<leader>A", "<cmd> MultipleCursorsAddMatchesV <cr>", { desc = "Add cursors to cword in previous area" })
+
+map("n", "<leader>d", "<cmd> MultipleCursorsAddJumpNextMatch <cr>", { desc = "Add cursor and jump to next cword" })
+map("x", "<leader>d", "<cmd> MultipleCursorsAddJumpNextMatch <cr>", { desc = "Add cursor and jump to next cword" })
+map("n", "<leader>D", "<cmd> MultipleCursorsJumpNextMatch <cr>", { desc = "Jump to next cword" })
+map("x", "<leader>D", "<cmd> MultipleCursorsJumpNextMatch <cr>", { desc = "Jump to next cword" })
+
+-- Remove the duplicate leader-j binding since we now have leader-d
+-- map("n", "<leader>j", "<cmd> MultipleCursorsAddJumpNextMatch <cr>", { desc = "Add cursor next match down" })
 -- map("n", "<leader>d", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor next down" })
 map(
   "n",
