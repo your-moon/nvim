@@ -17,9 +17,9 @@ return {
     opts = function()
       return {
         pickers = {
-          find_files = {
-            hidden = true,
-          },
+          -- find_files = {
+          --   hidden = true,
+          -- },
         },
         defaults = {
           vimgrep_arguments = {

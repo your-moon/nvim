@@ -9,8 +9,6 @@ map("n", "[d", "<cmd> Lspsaga diagnostic_jump_prev <cr>", { desc = "LSP jump pre
 map("n", "<leader>ca", "<cmd> Lspsaga code_action <cr>", { desc = "LSP code action" })
 map("n", "<leader>rn", "<cmd> Lspsaga rename <cr>", { desc = "LSP rename" })
 
-map("n", "<leader>w", "<cmd> OrganizeImports <cr>", { desc = "Organize Typescript Imports" })
-
 -- Split Explore
 -- map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
 -- map("n", "<leader>hx", "<cmd> Hexplore<cr>", { desc = "Hexplore" })
@@ -28,8 +26,6 @@ map("n", "<leader>r", "<cmd> NvimTreeFindFileToggle <cr>", { desc = "NvimTree Fi
 -- typescript organize imports
 map("n", "<leader>o", "<cmd> TSToolsOrganizeImports <cr>", { desc = "TSToolsOrganizeImports" })
 
-map("n", "<leader>z", "<cmd> ZenMode<cr>", { desc = "Zen Mode" })
-
 -- Multiple Cursors
 map("n", "<C-j>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
 map("x", "<C-j>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor and move down" })
@@ -46,7 +42,12 @@ map("x", "<C-Down>", "<cmd> MultipleCursorsAddDown <cr>", { desc = "Add cursor a
 map("n", "<C-LeftMouse>", "<cmd> MultipleCursorsMouseAddDelete <cr>", { desc = "Add or remove cursor" })
 map("i", "<C-LeftMouse>", "<cmd> MultipleCursorsMouseAddDelete <cr>", { desc = "Add or remove cursor" })
 
-map("x", "<leader>m", "<cmd> MultipleCursorsAddVisualArea <cr>", { desc = "Add cursors to the lines of the visual area" })
+map(
+  "x",
+  "<leader>m",
+  "<cmd> MultipleCursorsAddVisualArea <cr>",
+  { desc = "Add cursors to the lines of the visual area" }
+)
 
 map("n", "<leader>a", "<cmd> MultipleCursorsAddMatches <cr>", { desc = "Add cursors to cword" })
 map("x", "<leader>a", "<cmd> MultipleCursorsAddMatches <cr>", { desc = "Add cursors to cword" })
@@ -69,13 +70,18 @@ map(
 )
 -- nvim dap
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
+
+map("n", "<leader>dsl", function()
+  require("dapui").toggle()
+end, { desc = "Dap ui " })
+
 map("n", "<leader>dus", function()
   local widgets = require "dap.ui.widgets"
   local sidebar = widgets.sidebar(widgets.scopes)
   sidebar.open()
 end, { desc = "Dap debugging sidebar" })
 
-map("n", "<leader>dn", "<cmd> DapStepOver ", { desc = "Dap StepOver" })
+map("n", "<leader>dn", "<cmd> DapStepOver <cr>", { desc = "Dap StepOver" })
 
 map("n", "<leader>dd", function()
   require("dap").continue()

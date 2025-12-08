@@ -1,7 +1,7 @@
 return {
   ensure_installed = {
     "gofumpt",
-    "goimports-reviser",
+    "goimports",
     "gopls",
     "golines",
     "lua-language-server",
@@ -10,6 +10,7 @@ return {
     "stylua",
     "prettier",
     "typescript-language-server",
+    "tailwindcss-language-server",
     "zls",
   },
 }
