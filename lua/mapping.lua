@@ -88,3 +88,5 @@ map("n", "<leader>dd", function()
 end, { desc = "Dap debug" })
 
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
+
+map("n", "<leader>gg", "<cmd> Neogit <cr>", { desc = "Neogit" })
