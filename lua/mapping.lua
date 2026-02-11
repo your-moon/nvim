@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
-map("n", "K", vim.lsp.buf.hover, { desc = "Hover Doc" })
-map("n", "gw", "<cmd>Glance definitions<cr>", { desc = "Peek definition" })
-map("n", "gr", "<cmd>Glance references<cr>", { desc = "Find references" })
+map("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover Doc" })
+map("n", "gw", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
+map("n", "gr", "<cmd>Lspsaga finder<cr>", { desc = "Find references" })
 map("n", "gi", function()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
   local client = clients[1]
@@ -14,13 +14,10 @@ map("n", "gi", function()
       return
     end
     local res = vim.islist(result) and result[1] or result
-    -- Use show_document or the non-deprecated equivalent
     vim.lsp.util.show_document(res, client.offset_encoding, { focus = true })
     vim.cmd "normal! zz"
   end)
 end, { desc = "Goto implementation" })
-
-map("n", "gI", "<cmd>Glance implementations<cr>", { desc = "Peek implementation" })
 
 map("n", "gd", function()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -37,12 +34,10 @@ map("n", "gd", function()
     vim.cmd "normal! zz"
   end)
 end, { desc = "Goto definition" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "LSP jump next" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "LSP jump prev" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
-map("n", "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true, desc = "LSP rename" })
+map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "LSP jump next" })
+map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "LSP jump prev" })
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", { desc = "LSP code action" })
+map("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", { desc = "LSP rename" })
 
 -- Split Explore
 -- map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
