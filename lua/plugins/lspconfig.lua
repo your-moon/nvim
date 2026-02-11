@@ -4,10 +4,10 @@ return {
     lazy = false,
     config = function()
       local lspconfig = require "lspconfig"
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       lspconfig.lua_ls.setup {
+        capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = {
@@ -18,9 +18,12 @@ return {
         },
       }
 
-      lspconfig.zls.setup {}
+      lspconfig.zls.setup {
+        capabilities = capabilities,
+      }
 
       lspconfig.clangd.setup {
+        capabilities = capabilities,
         cmd = {
           "clangd",
           "--offset-encoding=utf-16",
@@ -28,6 +31,7 @@ return {
       }
 
       lspconfig.gopls.setup {
+        capabilities = capabilities,
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
         settings = {
           env = {
@@ -40,6 +44,7 @@ return {
       }
 
       lspconfig.tailwindcss.setup {
+        capabilities = capabilities,
         settings = {
           includeLanguages = {
             templ = "html",
@@ -47,7 +52,9 @@ return {
         },
       }
 
-      lspconfig.templ.setup {}
+      lspconfig.templ.setup {
+        capabilities = capabilities,
+      }
     end,
   },
 }
