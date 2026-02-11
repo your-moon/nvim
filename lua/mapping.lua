@@ -1,13 +1,48 @@
 local map = vim.keymap.set
 
-map("n", "K", "<cmd> Lspsaga hover_doc <cr>", { desc = "Hover Doc" })
-map("n", "gw", "<cmd> Lspsaga peek_definition <cr>", { desc = "Peek definition" })
-map("n", "gr", "<cmd> Lspsaga finder <cr>", { desc = "Find definition" })
-map("n", "gd", "<cmd> Lspsaga goto_definition <cr>", { desc = "Goto definition" })
-map("n", "]d", "<cmd> Lspsaga diagnostic_jump_next <cr>", { desc = "LSP jump next" })
-map("n", "[d", "<cmd> Lspsaga diagnostic_jump_prev <cr>", { desc = "LSP jump prev" })
-map("n", "<leader>ca", "<cmd> Lspsaga code_action <cr>", { desc = "LSP code action" })
-map("n", "<leader>rn", "<cmd> Lspsaga rename <cr>", { desc = "LSP rename" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover Doc" })
+map("n", "gw", "<cmd>Glance definitions<cr>", { desc = "Peek definition" })
+map("n", "gr", "<cmd>Glance references<cr>", { desc = "Find references" })
+map("n", "gi", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  local client = clients[1]
+  if not client then return end
+  local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+  vim.lsp.buf_request(0, "textDocument/implementation", params, function(err, result, ctx, _)
+    if err or not result or vim.tbl_isempty(result) then
+      print "Implementation not found"
+      return
+    end
+    local res = vim.islist(result) and result[1] or result
+    -- Use show_document or the non-deprecated equivalent
+    vim.lsp.util.show_document(res, client.offset_encoding, { focus = true })
+    vim.cmd "normal! zz"
+  end)
+end, { desc = "Goto implementation" })
+
+map("n", "gI", "<cmd>Glance implementations<cr>", { desc = "Peek implementation" })
+
+map("n", "gd", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  local client = clients[1]
+  if not client then return end
+  local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+  vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result, ctx, _)
+    if err or not result or vim.tbl_isempty(result) then
+      print "Definition not found"
+      return
+    end
+    local res = vim.islist(result) and result[1] or result
+    vim.lsp.util.show_document(res, client.offset_encoding, { focus = true })
+    vim.cmd "normal! zz"
+  end)
+end, { desc = "Goto definition" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "LSP jump next" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "LSP jump prev" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+map("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true, desc = "LSP rename" })
 
 -- Split Explore
 -- map("n", "<leader>vx", "<cmd> Vexplore<cr>", { desc = "Vexplore" })
@@ -69,3 +104,49 @@ map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle br
 
 -- neogit
 map("n", "<leader>gg", "<cmd> Neogit <cr>", { desc = "Neogit" })
+
+-- Copilot
+map("i", "<C-l>", function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+  end
+end, { desc = "Copilot Accept" })
+
+map("i", "<M-]>", function() require("copilot.suggestion").next() end, { desc = "Copilot Next" })
+map("i", "<M-[>", function() require("copilot.suggestion").prev() end, { desc = "Copilot Previous" })
+map("i", "<C-]>", function() require("copilot.suggestion").dismiss() end, { desc = "Copilot Dismiss" })
+
+-- Better Escape
+map("i", "jk", "<ESC>", { desc = "Exit Insert Mode" })
+
+-- Save and Quit
+map("n", "<leader>w", "<cmd> w <cr>", { desc = "Save File" })
+map("n", "<leader>q", "<cmd> q <cr>", { desc = "Quit" })
+
+-- Buffer Management
+map("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end, { desc = "Close Buffer (Preserve Window)" })
+map("n", "<Tab>", "<cmd> bnext <cr>", { desc = "Next Buffer" })
+map("n", "<S-Tab>", "<cmd> bprev <cr>", { desc = "Previous Buffer" })
+
+-- Telescope (including buffers)
+map("n", "<leader>fb", "<cmd> Telescope buffers <cr>", { desc = "Find Buffers" })
+
+-- Persistence (Session Management)
+map("n", "<leader>qs", function() require("persistence").load() end, { desc = "Restore Session" })
+map("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "Restore Last Session" })
+map("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Don't Save Current Session" })
+
+-- Harpoon (Primeagen)
+map("n", "<leader>a", function() require("harpoon"):list():add() end, { desc = "Harpoon Add" })
+map("n", "<C-e>", function() 
+  local harpoon = require("harpoon")
+  harpoon.ui:toggle_quick_menu(harpoon:list()) 
+end, { desc = "Harpoon Menu" })
+
+map("n", "<C-h>", function() require("harpoon"):list():select(1) end, { desc = "Harpoon 1" })
+map("n", "<C-j>", function() require("harpoon"):list():select(2) end, { desc = "Harpoon 2" })
+map("n", "<C-k>", function() require("harpoon"):list():select(3) end, { desc = "Harpoon 3" })
+map("n", "<C-l>", function() require("harpoon"):list():select(4) end, { desc = "Harpoon 4" })
+
+-- Undotree (Primeagen)
+map("n", "<leader>u", "<cmd> UndotreeToggle <cr>", { desc = "Toggle Undotree" })

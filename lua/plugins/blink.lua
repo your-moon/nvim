@@ -18,7 +18,13 @@ return {
       -- 'super-tab' for mappings similar to vscode (tab to accept)
       -- 'enter' for enter to accept
       -- 'none' for no mappings
-      keymap = { preset = "enter" },
+      keymap = {
+        preset = "none",
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+      },
 
       appearance = {
         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -27,6 +33,14 @@ return {
         -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = "mono",
+      },
+
+      completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+          treesitter_highlighting = false,
+        },
       },
 
       -- default list of enabled providers defined so that you can extend it

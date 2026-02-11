@@ -3,7 +3,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
-      vim.cmd "colorscheme rose-pine"
+      -- vim.cmd "colorscheme rose-pine"
     end,
   },
   {
@@ -21,7 +21,7 @@ return {
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
       -- vim.g.everforest_enable_italic = true
-      -- vim.cmd.colorscheme "everforest"
+      vim.cmd.colorscheme "everforest"
     end,
   },
   {
